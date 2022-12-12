@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+      }
+
+      .root {
+        width: 100%;
+        height: 100%;
+        min-width: 350px;
+        min-height: 100px;
+        background: #c4c4c4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+      .box {
+        display: flex;
+        position: relative;
+        width: 300px;
+        height: 80px;
+        background: #0142a3;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 4px;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+      }
+      .box > img {
+        position: absolute;
+        top: -8px;
+        left: -8px;
+      }
+      .points > span {
+        display: block;
+        position: relative;
+      }
+      .points > span::before {
+        position: absolute;
+        content: "";
+        top: 0.55rem;
+        left: -11px;
+        height: 4px;
+        width: 4px;
+        border-radius: 50%;
+      }
+      .points > span:nth-child(1)::before {
+        background-color: #ffadad;
+      }
+      .points > span:nth-child(2)::before {
+        background-color: #c7ffad;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="root">
+      <div class="box">
+        <img src="https://i.imgur.com/Uh6IvcO.png" alt="" />
+        <div class="title">Hello</div>
+        <div class="points">
+          <span>Point 1</span>
+          <span>Point 2 xxx</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
