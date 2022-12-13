@@ -1,4 +1,5 @@
 import React from "react";
+import { animated, useSpringValue } from "react-spring";
 import "./App.css";
 
 // 版本一，只管更新，不管更新速率是否一致
@@ -39,7 +40,7 @@ function App2(): JSX.Element {
         const timer = setTimeout(() => {
           setCount((prev) => prev + num);
           timers.current = timers.current.filter((id) => id !== timer);
-        }, 500 * i);
+        }, 500 * i) as unknown as number;
 
         timers.current.push(timer);
       });
@@ -90,4 +91,24 @@ function App3(): JSX.Element {
   );
 }
 
-export default App3;
+// react spring
+function App4(): JSX.Element {
+  const count = useSpringValue(0, {
+    config: {
+      duration: 500,
+    },
+  });
+
+  const handleIncrease = () => {
+    count.start(count.get() + 5);
+  };
+
+  return (
+    <div className="App">
+      <animated.h1>{count.to((v) => Math.floor(v))}</animated.h1>
+      <button onClick={handleIncrease}>+5</button>
+    </div>
+  );
+}
+
+export default App4;
